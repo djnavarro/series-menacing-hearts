@@ -1,4 +1,4 @@
-seeds <- 2161:2199
+seeds <- 2200:2299
 
 make_art <- function(seed) {
   
@@ -6,7 +6,7 @@ make_art <- function(seed) {
   library(dplyr)
   library(cairobasic)
   
-  sys_id <- "12"
+  sys_id <- "13"
   sys_name <- "languid"
   cpp_path <- here::here("source", paste0(sys_name, "_", sys_id, ".cpp"))
   sourceCpp(cpp_path)
@@ -17,7 +17,7 @@ make_art <- function(seed) {
   
   # fixed / default
   px <- 2000
-  layers <- 3
+  layers <- 50
   million <- 10^6
   iter <- 1000 * million
   zoom <- .25
