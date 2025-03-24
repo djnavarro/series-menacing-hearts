@@ -1,4 +1,4 @@
-seeds <- 2900:2999
+seeds <- 3000:3099
 
 make_art <- function(seed) {
   
@@ -6,7 +6,7 @@ make_art <- function(seed) {
   library(dplyr)
   library(cairobasic)
   
-  sys_id <- "20"
+  sys_id <- "21"
   sys_name <- "languid"
   cpp_path <- here::here("source", paste0(sys_name, "_", sys_id, ".cpp"))
   sourceCpp(cpp_path)
@@ -40,7 +40,7 @@ make_art <- function(seed) {
   #ind <- sample(nrow(palettes), 1)
   #palette_base <- unlist(palettes[ind,])
   #palette_base <- sample(palette_base, 8, replace = TRUE)
-  palette_base <- sample(c("#ffffff", "#222222"), 6, replace = TRUE)
+  palette_base <- sample(c("#ffffff", "#222222"), 2, replace = FALSE)
   pal <- (colorRampPalette(palette_base))(ncl)
   bg <- pal[1]
   
