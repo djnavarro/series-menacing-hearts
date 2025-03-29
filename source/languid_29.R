@@ -1,15 +1,11 @@
-seeds <- 2400:2499
+seeds <- 2900:2999
 
 make_art <- function(seed) {
-  
-  library(Rcpp)
-  library(dplyr)
-  library(cairobasic)
-  
-  sys_id <- "14"
+    
+  sys_id <- "29"
   sys_name <- "languid"
   cpp_path <- here::here("source", paste0(sys_name, "_", sys_id, ".cpp"))
-  sourceCpp(cpp_path)
+  Rcpp::sourceCpp(cpp_path)
   
   # seed
   cat(seed, "\n")
@@ -17,9 +13,9 @@ make_art <- function(seed) {
   
   # fixed / default
   px <- 2000
-  layers <- 50
+  layers <- 5
   million <- 10^6
-  iter <- 1000 * million
+  iter <- 2000 * million
   zoom <- .25
   alpha <- .0001
   
@@ -40,7 +36,7 @@ make_art <- function(seed) {
   ind <- sample(nrow(palettes), 1)
   palette_base <- unlist(palettes[ind,])
   palette_base <- c(
-    sample(palette_base, 2), 
+    sample(palette_base, 3), 
     rep("#000000", 6)
   )
   palette_base <- sample(palette_base)
