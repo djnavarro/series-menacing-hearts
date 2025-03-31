@@ -119,7 +119,7 @@ NumericMatrix raster_data(int iter, int layers, int pixels, double zoom, double 
       y = cos(y) * 2;
       z = cos(z) * 3;
     } else {
-      s = sin(x + y) * 3.14 / 2;
+      s = sin(x + y) * 3.14 * (iter - it)/iter;
       x = heart_x(s + rot2) * r * (iter - it)/iter / 2;
       y = heart_y(s + rot2) * r * (iter - it)/iter / 2;
       z = sin(z);

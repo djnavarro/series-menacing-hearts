@@ -13,7 +13,7 @@ make_art <- function(seed) {
   
   # fixed / default
   px <- 2000
-  layers <- 20
+  layers <- 5
   million <- 10^6
   iter <- 2000 * million
   zoom <- .25
