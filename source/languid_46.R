@@ -1,8 +1,8 @@
-seeds <- 4400:4499
+seeds <- 4600:4699
 
 make_art <- function(seed) {
     
-  sys_id <- "45"
+  sys_id <- "46"
   sys_name <- "languid"
   cpp_path <- here::here("source", paste0(sys_name, "_", sys_id, ".cpp"))
   Rcpp::sourceCpp(cpp_path)
@@ -13,7 +13,7 @@ make_art <- function(seed) {
   
   # fixed / default
   px <- 2000
-  layers <- 10
+  layers <- 200
   million <- 10^6
   iter <- 1000 * million
   zoom <- .25
@@ -36,7 +36,7 @@ make_art <- function(seed) {
   ind <- sample(nrow(palettes), 1)
   palette_base <- unlist(palettes[ind,])
   palette_base <- sample(palette_base, 4)
-  palette_base <- as.vector(t(replicate(8, palette_base)))
+  palette_base <- as.vector(t(replicate(16, palette_base)))
   #bw <- ifelse(runif(1) < .5, "#000000", "#ffffff")
   #palette_base <- c(palette_base, rep(bw, 12))
   #if (runif(1) < .5) palette_base <- rev(palette_base)

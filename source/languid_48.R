@@ -1,8 +1,8 @@
-seeds <- 4400:4499
+seeds <- 4800:4899
 
 make_art <- function(seed) {
     
-  sys_id <- "45"
+  sys_id <- "48"
   sys_name <- "languid"
   cpp_path <- here::here("source", paste0(sys_name, "_", sys_id, ".cpp"))
   Rcpp::sourceCpp(cpp_path)
@@ -35,11 +35,11 @@ make_art <- function(seed) {
   ncl <- 1024
   ind <- sample(nrow(palettes), 1)
   palette_base <- unlist(palettes[ind,])
-  palette_base <- sample(palette_base, 4)
-  palette_base <- as.vector(t(replicate(8, palette_base)))
-  #bw <- ifelse(runif(1) < .5, "#000000", "#ffffff")
-  #palette_base <- c(palette_base, rep(bw, 12))
-  #if (runif(1) < .5) palette_base <- rev(palette_base)
+  palette_base <- sample(palette_base, 8, replace = TRUE)
+  palette_base <- as.vector(t(replicate(4, palette_base)))
+  bw <- ifelse(runif(1) < .5, "#000000", "#ffffff")
+  palette_base <- c(palette_base, rep(bw, 4))
+  if (runif(1) < .5) palette_base <- rev(palette_base)
   pal <- (colorRampPalette(palette_base))(ncl)
   bg <- pal[1]
   
