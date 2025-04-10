@@ -1,4 +1,4 @@
-# series-languid
+# series-menacing-hearts
 
 Source code for a generative art series:
 
